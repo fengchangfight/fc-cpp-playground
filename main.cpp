@@ -2,50 +2,40 @@
 #include <vector>
 #include <string>
 #include <gflags/gflags.h>
+#include <boost/tokenizer.hpp>
+#include <boost/shared_ptr.hpp>
 
 using std::cout;
-using std::vector;
-using std::string;
 using std::endl;
+using std::string;
+using std::vector;
 
-DEFINE_string(languages, "english,french,german","comma-separated list of languages to offer in the 'lang' menu");
+int val = 1;
 
+class implementation
+{
+public:
+     ~implementation() { std::cout << "destroying implementation\n"; }
+     void do_something() { std::cout << "did something\n"; }
+};
 
+void boostshareptrtest()
+{
+     boost::shared_ptr<implementation> sp1(new implementation());
+     std::cout << "The Sample now has " << sp1.use_count() << " references\n";
+
+     boost::shared_ptr<implementation> sp2 = sp1;
+     std::cout << "The Sample now has " << sp2.use_count() << " references\n";
+
+     sp1.reset();
+     std::cout << "After Reset sp1. The Sample now has " << sp2.use_count() << " references\n";
+
+     sp2.reset();
+     std::cout << "After Reset sp2.\n";
+}
 
 int main(int argc, char *argv[])
 {
-    gflags::SetUsageMessage("some usage message");
-    gflags::SetVersionString("1.0.0");
-    gflags::ParseCommandLineFlags(&argc, &argv, true);
-    cout<<"My language is:"<<FLAGS_languages<<endl;
-    
-    vector<string> msg {"Hello", "C++", "World", "from", "VS Code!"};
-
-    int a = 2;
-    int b =1;
-    int c = a+b;
-    int e
-    {
-        5
-    };
-
-    msg.push_back("fuck");
-
-    for (const string& word : msg)
-    {
-        cout << word << " ";
-        cout << c;
-    }
-    cout <<"I\n";
-    cout <<"love\n";
-    cout <<"dogs\n";
-    cout <<"cats\n";
-    cout <<"miao\n";
-    cout <<"horse\n";
-    cout <<"tuck\n";
-    cout <<"bitch\n";
-
-    cout<<e<<"\n";
-
-    return 0;
+     boostshareptrtest();
+     return 0;
 }
