@@ -12,6 +12,17 @@ using std::string;
 using std::vector;
 
 int val = 1;
+namespace n1
+{
+int f = 10;
+}
+namespace n2
+{
+int f = 5;
+}
+
+using namespace n1;
+using namespace n2;
 
 void vectorplay()
 {
@@ -71,6 +82,9 @@ void boostshareptrtest()
 
 int main(int argc, char *argv[])
 {
-     printvector();
+     //printvector();
+
+     cout << n1::f << endl;
+
      return 0;
 }
