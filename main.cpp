@@ -35,6 +35,17 @@ void swapplay()
      cout << "after x:" << x << ",y:" << y << endl;
 }
 
+void printvector()
+{
+     /* Set up vector to hold chars a-z */
+     std::vector<char> path;
+     for (int ch = 'a'; ch <= 'z'; ++ch)
+          path.push_back(ch);
+
+     /* Print path vector to console */
+     std::copy(path.begin(), path.end(), std::ostream_iterator<char>(std::cout, " "));
+}
+
 class implementation
 {
 public:
@@ -60,6 +71,6 @@ void boostshareptrtest()
 
 int main(int argc, char *argv[])
 {
-     swapplay();
+     printvector();
      return 0;
 }
