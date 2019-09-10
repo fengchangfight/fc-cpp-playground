@@ -106,7 +106,11 @@ int main(int argc, char *argv[])
 
      std::shared_ptr<Box> pSA(new Box(1, 2, 3));
 
+     std::shared_ptr<Box> ptranother = std::make_shared<Box>(2, 2, 6);
+
      pSA->showHeight();
+
+     ptranother->showHeight();
 
      return 0;
 }
