@@ -5,6 +5,7 @@
 #include <boost/tokenizer.hpp>
 #include <boost/shared_ptr.hpp>
 #include <openssl/opensslv.h>
+#include <memory>
 
 using std::cout;
 using std::endl;
@@ -80,11 +81,32 @@ void boostshareptrtest()
      std::cout << "After Reset sp2.\n";
 }
 
+class Box
+{
+public:
+     double length;  // 长度
+     double breadth; // 宽度
+     double height;  // 高度
+     Box(double l, double b, double h)
+     {
+          this->length = l;
+          this->breadth = b;
+          this->height = h;
+     }
+     void showHeight()
+     {
+          cout << "my height is: " << height << endl;
+     }
+};
+
 int main(int argc, char *argv[])
 {
      //printvector();
+     //cout << n1::f << endl;
 
-     cout << n1::f << endl;
+     std::shared_ptr<Box> pSA(new Box(1, 2, 3));
+
+     pSA->showHeight();
 
      return 0;
 }
