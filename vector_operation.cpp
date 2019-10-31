@@ -14,5 +14,12 @@ int main()
     	std::cout << x << '\n';        
     }
 
+    // repeat vector same element
+    std::vector<string> vec(5, "hell");
+    for(auto & s: vec){
+        cout<< s<< endl;
+    }
+    
+   
     return 0;
 }
