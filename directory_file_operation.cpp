@@ -1,6 +1,5 @@
 #include <iostream>
 #include <dirent.h>
-#include <sys/types.h>
 #include <string>
 #include <vector>
 
