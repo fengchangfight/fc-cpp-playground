@@ -40,5 +40,12 @@ int main()
     for(auto& entry: map2){
         cout<<entry.first<<","<<entry.second<<endl;
     }
+    
+    if(map2.find("lvoe") == map2.end()){
+        cout<<"not exist";
+    }else{
+        cout<<"exist";
+    }
+  
     return 0;
 }
